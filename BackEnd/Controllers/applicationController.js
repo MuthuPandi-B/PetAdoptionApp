@@ -22,7 +22,7 @@ export const createApplication = async (req, res) => {
       creator: userId,
       status: "Pending",
     });
-    console.log("application:", application.creator);
+  
     await application.save();
     res.status(200).json({ message: "Application submitted successfully" });
   } catch (error) {
