@@ -1,0 +1,17 @@
+import express from "express";
+import { approveApplication, createApplication, deleteApplication, editApplication, getAllApplications, getApplicationById, getApplicationByUserId, rejectApplication, requestAdditionalInfo, scheduleMeetAndGreet,  } from "../Controllers/applicationController.js";
+import { adminMiddleware, authMiddleware } from "../Middleware/authMiddleware.js";
+import{ loginUser} from "../Controllers/authController.js";
+const router = express.Router();
+router.post("/login",loginUser);
+router.post("/create",authMiddleware, createApplication);
+router.patch("/approve/:id",authMiddleware ,adminMiddleware ,approveApplication);
+router.patch("/reject/:id",authMiddleware,adminMiddleware, rejectApplication);
+router.delete("/delete/:id",authMiddleware, deleteApplication);
+router.put("/edit/:id",authMiddleware ,editApplication);
+router.get("/getall",authMiddleware,adminMiddleware, getAllApplications);
+router.get("/get/:id",authMiddleware,getApplicationById);
+router.get("/user",authMiddleware, getApplicationByUserId);
+router.post("/scheduled/:id",authMiddleware,adminMiddleware, scheduleMeetAndGreet);
+router.post("/request-info/:id",authMiddleware,adminMiddleware, requestAdditionalInfo);
+export default router;
