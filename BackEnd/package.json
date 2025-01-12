@@ -11,7 +11,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Pet Adoption Platform Backend\r Overview\r This is the backend of the Pet Adoption Platform, built with Node.js, Express, and MongoDB.",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cloudinary": "^1.21.0",
@@ -26,5 +26,6 @@
     "nodemon": "^3.1.7",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1"
-  }
+  },
+  "devDependencies": {}
 }
